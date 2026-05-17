@@ -1,0 +1,15 @@
+# Data
+data/raw/
+output/
+
+# Python
+.venv/
+__pycache__/
+*.parquet
+*.pyc
+
+# OS
+.DS_Store
+
+# Poetry
+.venv
