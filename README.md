@@ -174,7 +174,7 @@ Trois datasets prêts à consommer :
 ## 🗺️ Roadmap
 
 - [x] Phase 1 : Pipeline Python (Bronze / Silver / Gold)
-- [ ] Phase 2 : Tests unitaires avec pytest
+- [x] Phase 2 : Tests unitaires avec pytest
 - [ ] Phase 3 : Orchestration avec Apache Airflow
 - [ ] Phase 4 : Réécriture en Scala / Spark
 
