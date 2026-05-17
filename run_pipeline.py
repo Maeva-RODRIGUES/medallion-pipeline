@@ -1,6 +1,7 @@
 from pyspark.sql import SparkSession
 from medallion.bronze.ingest import ingest_raw
 from medallion.silver.transform import transform
+from medallion.gold.aggregate import aggregate
 
 
 def create_spark_session() -> SparkSession:
@@ -28,5 +29,12 @@ if __name__ == "__main__":
         output_path="output/silver"
     )
 
-    print("\n✅ Pipeline Bronze → Silver terminé !")
+    print("\n🟡 Gold : agrégation...")
+    aggregate(
+        spark,
+        input_path="output/silver",
+        output_path="output/gold"
+    )
+
+    print("\n✅ Pipeline complet Bronze → Silver → Gold terminé !")
     spark.stop()
