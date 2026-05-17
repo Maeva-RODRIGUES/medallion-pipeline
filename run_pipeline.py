@@ -1,5 +1,6 @@
 from pyspark.sql import SparkSession
 from medallion.bronze.ingest import ingest_raw
+from medallion.silver.transform import transform
 
 
 def create_spark_session() -> SparkSession:
@@ -20,5 +21,12 @@ if __name__ == "__main__":
         output_path="output/bronze"
     )
 
-    print("\n✅ Pipeline Bronze terminé !")
+    print("\n⚪ Silver : transformation...")
+    transform(
+        spark,
+        input_path="output/bronze",
+        output_path="output/silver"
+    )
+
+    print("\n✅ Pipeline Bronze → Silver terminé !")
     spark.stop()
